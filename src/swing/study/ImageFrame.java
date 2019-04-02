@@ -19,7 +19,6 @@ public class ImageFrame extends JFrame implements ActionListener {
     private JPanel centerPanel,bottomPanel;
     private CardLayout cardLayout;
     private JFileChooser fileChooser;
-
     public ImageFrame(){
         init();
         setTitle("使用卡片布局实现多图功能");
@@ -29,8 +28,6 @@ public class ImageFrame extends JFrame implements ActionListener {
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
-
-
     public void  init(){
         bottomPanel = new JPanel();
         chooserBtn = new JButton("图片选择");
@@ -40,19 +37,16 @@ public class ImageFrame extends JFrame implements ActionListener {
         nextBtn = new JButton("下一张");
         nextBtn.addActionListener(this);
         preBtn.addActionListener(this);
-        bottomPanel.add(chooserBtn);
         bottomPanel.add(preBtn);
+        bottomPanel.add(chooserBtn);
         bottomPanel.add(nextBtn);
         add(bottomPanel,BorderLayout.SOUTH);
-
         centerPanel = new JPanel();
         cardLayout = new CardLayout();
         centerPanel.setLayout(cardLayout);
-        centerPanel.setBackground(new Color(151, 155, 192));
+        centerPanel.setBackground(new Color(192, 13, 49));
         add(centerPanel);
     }
-
-
     public static void main(String[] args) {
         try {
             BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.frameBorderStyle.osLookAndFeelDecorated;
@@ -62,8 +56,6 @@ public class ImageFrame extends JFrame implements ActionListener {
         }
         new ImageFrame();
     }
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==chooserBtn) {
